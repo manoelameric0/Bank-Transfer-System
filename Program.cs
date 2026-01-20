@@ -1,24 +1,23 @@
 ﻿using System;
-
 class Exercicio
 {
-    class ContaBancaria
+    public class ContaBancaria
     {
         public string Titular { get; set; }
-        private int Numero;
+        private int Id;
         private double Saldo;
 
-        public ContaBancaria(string titular, int numero, double saldo)
+        public ContaBancaria(string titular, int id, double saldo)
         {
             Titular = titular;
-            Numero = numero;
+            Id = id;
             Saldo = saldo;
         }
 
         public ContaBancaria()
         {
             Titular = "";
-            Numero = 0;
+            Id = 0;
             Saldo = 0;
         }
 
@@ -26,18 +25,27 @@ class Exercicio
 
     static void Main()
     {
-        Console.WriteLine();
+        int quantidade = int.Parse(Console.ReadLine());
+
+        for(int i = 0; i < quantidade; i++)
+        {
+            Console.WriteLine($"Digite o nome da conta {i + 1}");
+            Console.WriteLine("Nome: ");
+            string nome = Console.ReadLine();
+
+            ContaBancaria conta = CriarConta(nome, GerarId());
+        }
     }
 
-    public static ContaBancaria CriarConta(string nome, int numero)
+    public static ContaBancaria CriarConta(string nome, int id)
     {
-        return new ContaBancaria(nome, numero, 0);
+        return new ContaBancaria(nome, id, 0);
     }
 
-    public static int GerarNumero()
+    private static Random rnd = new Random();
+
+    public static int GerarId()
     {
-        Random rnd = new Random();
-        int numero = rnd.Next(100, 199);
-        return numero;
+        return rnd.Next(100, 199);
     }
 }
