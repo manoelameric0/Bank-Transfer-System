@@ -36,7 +36,7 @@ class Exercicio
             Console.WriteLine("Nome: ");
             string nome = Console.ReadLine();
 
-            contas.Add(new ContaBancaria {Titular = nome, Id = GerarId});
+            contas.Add(new ContaBancaria {Titular = nome, Id = GerarId()});
         }
 
         foreach (ContaBancaria p in contas)
@@ -49,6 +49,6 @@ class Exercicio
 
     public static int GerarId()
     {
-        return rnd.Next(100, 199);
+        return rnd.Next(100, 200);
     }
 }
