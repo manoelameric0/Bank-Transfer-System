@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 class Exercicio
 {
     public class ContaBancaria
     {
         public string Titular { get; set; }
-        private int Id;
+        public int Id;
         private double Saldo;
 
         public ContaBancaria(string titular, int id, double saldo)
@@ -25,6 +26,8 @@ class Exercicio
 
     static void Main()
     {
+        List<ContaBancaria> contas = new List<ContaBancaria>();
+        
         int quantidade = int.Parse(Console.ReadLine());
 
         for(int i = 0; i < quantidade; i++)
@@ -33,13 +36,13 @@ class Exercicio
             Console.WriteLine("Nome: ");
             string nome = Console.ReadLine();
 
-            ContaBancaria conta = CriarConta(nome, GerarId());
+            contas.Add(new ContaBancaria {Titular = nome, Id = GerarId});
         }
-    }
 
-    public static ContaBancaria CriarConta(string nome, int id)
-    {
-        return new ContaBancaria(nome, id, 0);
+        foreach (ContaBancaria p in contas)
+        {
+            Console.WriteLine($"Nome: {p.Titular}, Id: {p.Id}");
+        }
     }
 
     private static Random rnd = new Random();
