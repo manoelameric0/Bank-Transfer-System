@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\JoaoM\\OneDrive\\Área de Trabalho\\C#\\Projetos\\ContaBancaria\\ContaBancaria.csproj",
+      "projectUniqueName": "C:\\RemakeProjeto\\bank-transfer-system\\ContaBancaria.csproj",
       "projectName": "ContaBancaria",
-      "projectPath": "C:\\Users\\JoaoM\\OneDrive\\Área de Trabalho\\C#\\Projetos\\ContaBancaria\\ContaBancaria.csproj",
+      "projectPath": "C:\\RemakeProjeto\\bank-transfer-system\\ContaBancaria.csproj",
       "packagesPath": "C:\\Users\\JoaoM\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\JoaoM\\OneDrive\\Área de Trabalho\\C#\\Projetos\\ContaBancaria\\obj\\",
+      "outputPath": "C:\\RemakeProjeto\\bank-transfer-system\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\JoaoM\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -65,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",
