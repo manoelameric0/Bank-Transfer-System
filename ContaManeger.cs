@@ -1,4 +1,5 @@
 using System;
+using Microsoft.VisualBasic;
 
 namespace ContaBancaria;
 
@@ -12,6 +13,8 @@ public class ContaManeger
             return contas;
         }
     }
+
+    ContaBancaria contaBancaria = new ContaBancaria();
 
 
     public void AddConta(int quantidade)
@@ -151,27 +154,20 @@ public class ContaManeger
 
         return valor;
     }
-}
-
-// ================= CLASSE CONTA ==================
-
-class ContaBancaria
-{
-
 
     public bool Depositar(double valor)
     {
         if (valor <= 0) return false;
 
-        Saldo += valor;
+        contaBancaria.DepSacSaldo += valor;
         return true;
     }
 
     public bool Sacar(double valor)
     {
-        if (valor <= 0 || Saldo < valor) return false;
+        if (valor <= 0 || contaBancaria.Saldo < valor) return false;
 
-        Saldo -= valor;
+        contaBancaria.DepSacSaldo -= valor;
         return true;
     }
 
@@ -179,18 +175,23 @@ class ContaBancaria
     {
         if (!Sacar(valor)) return false;
 
-        destino.Depositar(valor);
+        
+
+        destino.DepSacSaldo =
+        
         return true;
     }
 
     public double ObterSaldo()
     {
-        return Saldo;
+        return contaBancaria.Saldo;
     }
 
     public override string ToString()
     {
-        return $"Titular: {Titular} | ID: {Id} | Saldo: R$ {Saldo:F2}";
+        return $"Titular: {contaBancaria.Titular} | ID: {contaBancaria.Id} | Saldo: R$ {contaBancaria.Saldo:F2}";
     }
 }
+
+// ================= CLASSE CONTA ==================
 

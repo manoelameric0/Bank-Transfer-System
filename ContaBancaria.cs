@@ -8,12 +8,29 @@ public class ContaBancaria
 
     public int Id { get; }
     public string Titular { get; }
-    private double Saldo;
+    public double Saldo {get; private set;}
 
     public ContaBancaria(string titular)
     {
         Titular = titular;
         Id = Random.Next(100, 200);
         Saldo = 0;
+    }
+
+    public ContaBancaria()
+    {
+        
+    }
+
+    public double DepSacSaldo
+    {
+        set
+        {
+            Saldo = value;
+        }
+        get
+        {
+            return Saldo;
+        }
     }
 }
