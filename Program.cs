@@ -10,7 +10,7 @@ namespace SistemaBancario
         {
             var manager = new ContaManeger();
 
-            Console.Write("Quantas manager._contas deseja criar? ");
+            Console.Write("Quantas Contas deseja criar? ");
             int quantidade = manager.LerInt();
 
             manager.AddConta(quantidade);
@@ -23,7 +23,7 @@ namespace SistemaBancario
                 Console.WriteLine("1 - Depositar");
                 Console.WriteLine("2 - Sacar");
                 Console.WriteLine("3 - Transferir");
-                Console.WriteLine("4 - Checar manager._contas");
+                Console.WriteLine("4 - Checar Contas");
                 Console.WriteLine("5 - Sair");
                 Console.Write("Opção: ");
 

@@ -38,7 +38,7 @@ public class ContaManeger
         double valor = LerDouble();
 
         Console.WriteLine(
-            conta.Depositar(valor)
+            Depositar(valor)
                 ? "Depósito realizado com sucesso."
                 : "Valor inválido."
         );
@@ -55,7 +55,7 @@ public class ContaManeger
         double valor = LerDouble();
 
         Console.WriteLine(
-            conta.Sacar(valor)
+            Sacar(valor)
                 ? "Saque realizado com sucesso."
                 : "Saldo insuficiente ou valor inválido."
         );
@@ -84,7 +84,7 @@ public class ContaManeger
         }
 
         Console.WriteLine(
-            origem.Transferir(destino, valor)
+            Transferir(destino, valor)
                 ? "Transferência realizada com sucesso."
                 : "Erro: saldo insuficiente ou valor inválido."
         );
@@ -113,7 +113,7 @@ public class ContaManeger
     {
         Console.WriteLine("\n=== CONTAS CADASTRADAS ===");
 
-        if (contas.Count == 0)
+        if (_contas.Count == 0)
         {
             Console.WriteLine("Nenhuma conta cadastrada.");
             return;
@@ -127,7 +127,7 @@ public class ContaManeger
 
     public void ExibirSaldo(ContaBancaria conta)
     {
-        Console.WriteLine($"Saldo atual: R$ {conta.ObterSaldo():F2}");
+        Console.WriteLine($"Saldo atual: R$ {ObterSaldo():F2}");
     }
 
     // ================= LEITURA SEGURA ==================
@@ -175,10 +175,7 @@ public class ContaManeger
     {
         if (!Sacar(valor)) return false;
 
-        
-
-        destino.DepSacSaldo =
-        
+        Depositar(valor);        
         return true;
     }
 
