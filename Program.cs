@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ContaBancaria;
 
 namespace SistemaBancario
 {
@@ -7,18 +8,12 @@ namespace SistemaBancario
     {
         static void Main()
         {
-            List<ContaBancaria> contas = new();
+            var manager = new ContaManeger();
 
             Console.Write("Quantas contas deseja criar? ");
             int quantidade = LerInt();
 
-            for (int i = 0; i < quantidade; i++)
-            {
-                Console.Write($"Nome do titular da conta {i + 1}: ");
-                string nome = Console.ReadLine() ?? string.Empty;
-
-                contas.Add(new ContaBancaria(nome));
-            }
+            manager.AddConta(quantidade);
 
             bool executando = true;
 
@@ -174,9 +169,9 @@ namespace SistemaBancario
         {
             int valor;
 
-            while (!int.TryParse(Console.ReadLine(), out valor))
+            while (!int.TryParse(Console.ReadLine(), out valor) || valor <= 0)
             {
-                Console.Write("Entrada inválida. Digite um número inteiro: ");
+                Console.Write("Entrada inválida. Digite um número inteiro maior que ZERO: ");
             }
 
             return valor;
@@ -199,18 +194,7 @@ namespace SistemaBancario
 
     class ContaBancaria
     {
-        private static readonly Random Random = new();
-
-        public int Id { get; }
-        public string Titular { get; }
-        private double Saldo;
-
-        public ContaBancaria(string titular)
-        {
-            Titular = titular;
-            Id = Random.Next(100, 200);
-            Saldo = 0;
-        }
+        
 
         public bool Depositar(double valor)
         {

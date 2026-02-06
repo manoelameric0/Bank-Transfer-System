@@ -1,0 +1,15 @@
+B:\DESKTOP\md\C#\forks\Bank-Transfer-System\bin\Debug\net10.0\ContaBancaria.exe
+B:\DESKTOP\md\C#\forks\Bank-Transfer-System\bin\Debug\net10.0\ContaBancaria.deps.json
+B:\DESKTOP\md\C#\forks\Bank-Transfer-System\bin\Debug\net10.0\ContaBancaria.runtimeconfig.json
+B:\DESKTOP\md\C#\forks\Bank-Transfer-System\bin\Debug\net10.0\ContaBancaria.dll
+B:\DESKTOP\md\C#\forks\Bank-Transfer-System\bin\Debug\net10.0\ContaBancaria.pdb
+B:\DESKTOP\md\C#\forks\Bank-Transfer-System\obj\Debug\net10.0\ContaBancaria.GeneratedMSBuildEditorConfig.editorconfig
+B:\DESKTOP\md\C#\forks\Bank-Transfer-System\obj\Debug\net10.0\ContaBancaria.AssemblyInfoInputs.cache
+B:\DESKTOP\md\C#\forks\Bank-Transfer-System\obj\Debug\net10.0\ContaBancaria.AssemblyInfo.cs
+B:\DESKTOP\md\C#\forks\Bank-Transfer-System\obj\Debug\net10.0\ContaBancaria.csproj.CoreCompileInputs.cache
+B:\DESKTOP\md\C#\forks\Bank-Transfer-System\obj\Debug\net10.0\ContaBancaria.sourcelink.json
+B:\DESKTOP\md\C#\forks\Bank-Transfer-System\obj\Debug\net10.0\ContaBancaria.dll
+B:\DESKTOP\md\C#\forks\Bank-Transfer-System\obj\Debug\net10.0\refint\ContaBancaria.dll
+B:\DESKTOP\md\C#\forks\Bank-Transfer-System\obj\Debug\net10.0\ContaBancaria.pdb
+B:\DESKTOP\md\C#\forks\Bank-Transfer-System\obj\Debug\net10.0\ContaBancaria.genruntimeconfig.cache
+B:\DESKTOP\md\C#\forks\Bank-Transfer-System\obj\Debug\net10.0\ref\ContaBancaria.dll
