@@ -8,7 +8,7 @@ public class ContaBancaria
 
     public int Id { get; }
     public string Titular { get; }
-    public double Saldo {get; private set;}
+    public double Saldo { get; private set; }
 
     public ContaBancaria(string titular)
     {
@@ -19,18 +19,41 @@ public class ContaBancaria
 
     public ContaBancaria()
     {
-        
+
     }
 
-    public double DepSacSaldo
+    public double ObterSaldo()
     {
-        set
-        {
-            Saldo = value;
-        }
-        get
-        {
-            return Saldo;
-        }
+        return Saldo;
+    }
+
+    public override string ToString()
+    {
+        return $"Titular: {Titular} | ID: {Id} | Saldo: R$ {Saldo:F2}";
+    }
+
+    public bool Depositar(double valor)
+    {
+        if (valor <= 0) return false;
+
+        Saldo += valor;
+
+        return true;
+    }
+
+    public bool Sacar(double valor)
+    {
+        if (valor <= 0 || Saldo < valor) return false;
+
+        Saldo -= valor;
+        return true;
+    }
+
+    public bool Transferir(ContaBancaria destino, double valor)
+    {
+        if (!Sacar(valor)) return false;
+
+        Depositar(valor);        
+        return true;
     }
 }

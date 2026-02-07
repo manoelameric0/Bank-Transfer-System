@@ -14,8 +14,6 @@ public class ContaManeger
         }
     }
 
-    ContaBancaria contaBancaria = new ContaBancaria();
-
 
     public void AddConta(int quantidade)
     {
@@ -38,7 +36,7 @@ public class ContaManeger
         double valor = LerDouble();
 
         Console.WriteLine(
-            Depositar(valor)
+            conta.Depositar(valor)
                 ? "Depósito realizado com sucesso."
                 : "Valor inválido."
         );
@@ -55,7 +53,7 @@ public class ContaManeger
         double valor = LerDouble();
 
         Console.WriteLine(
-            Sacar(valor)
+            conta.Sacar(valor)
                 ? "Saque realizado com sucesso."
                 : "Saldo insuficiente ou valor inválido."
         );
@@ -84,7 +82,7 @@ public class ContaManeger
         }
 
         Console.WriteLine(
-            Transferir(destino, valor)
+            origem.Transferir(destino, valor)
                 ? "Transferência realizada com sucesso."
                 : "Erro: saldo insuficiente ou valor inválido."
         );
@@ -127,7 +125,7 @@ public class ContaManeger
 
     public void ExibirSaldo(ContaBancaria conta)
     {
-        Console.WriteLine($"Saldo atual: R$ {ObterSaldo():F2}");
+        Console.WriteLine($"Saldo atual: R$ {conta.ObterSaldo():F2}");
     }
 
     // ================= LEITURA SEGURA ==================
@@ -155,39 +153,7 @@ public class ContaManeger
         return valor;
     }
 
-    public bool Depositar(double valor)
-    {
-        if (valor <= 0) return false;
-
-        contaBancaria.DepSacSaldo += valor;
-        return true;
-    }
-
-    public bool Sacar(double valor)
-    {
-        if (valor <= 0 || contaBancaria.Saldo < valor) return false;
-
-        contaBancaria.DepSacSaldo -= valor;
-        return true;
-    }
-
-    public bool Transferir(ContaBancaria destino, double valor)
-    {
-        if (!Sacar(valor)) return false;
-
-        Depositar(valor);        
-        return true;
-    }
-
-    public double ObterSaldo()
-    {
-        return contaBancaria.Saldo;
-    }
-
-    public override string ToString()
-    {
-        return $"Titular: {contaBancaria.Titular} | ID: {contaBancaria.Id} | Saldo: R$ {contaBancaria.Saldo:F2}";
-    }
+    
 }
 
 // ================= CLASSE CONTA ==================
