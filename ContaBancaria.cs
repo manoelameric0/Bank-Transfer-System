@@ -49,11 +49,5 @@ public class ContaBancaria
         return true;
     }
 
-    public bool Transferir(ContaBancaria destino, double valor)
-    {
-        if (!Sacar(valor)) return false;
-
-        Depositar(valor);        
-        return true;
-    }
+    
 }

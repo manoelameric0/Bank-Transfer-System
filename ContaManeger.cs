@@ -82,10 +82,18 @@ public class ContaManeger
         }
 
         Console.WriteLine(
-            origem.Transferir(destino, valor)
+            Transferir(destino, valor)
                 ? "Transferência realizada com sucesso."
                 : "Erro: saldo insuficiente ou valor inválido."
         );
+    }
+
+    public bool Transferir(ContaBancaria destino, double valor)
+    {
+        if (!destino.Sacar(valor)) return false;
+
+        destino.Depositar(valor);        
+        return true;
     }
 
     // ================= UTILITÁRIOS =================
