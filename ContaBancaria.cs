@@ -48,6 +48,12 @@ public class ContaBancaria
         Saldo -= valor;
         return true;
     }
+    public bool Transferir(ContaBancaria destino, double valor)
+    {
+        if (!Sacar(valor)) return false;
 
+        destino.Depositar(valor);        
+        return true;
+    }
     
 }

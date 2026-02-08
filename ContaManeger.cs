@@ -20,7 +20,7 @@ public class ContaManeger
         for (int i = 0; i < quantidade; i++)
         {
             Console.Write($"Nome do titular da conta {i + 1}: ");
-            string nome = Console.ReadLine() ?? string.Empty;
+            string nome = LerString();
 
             contas.Add(new ContaBancaria(nome));
         }
@@ -63,38 +63,52 @@ public class ContaManeger
 
     public void OperarTransferencia(List<ContaBancaria> contas)
     {
-        Console.Write("ID da conta de origem: ");
-        int origemId = LerInt();
+        double valor = 0.0;
+        int origemId = 0;
+        int destinoId = 0;
 
-        Console.Write("ID da conta de destino: ");
-        int destinoId = LerInt();
-
-        Console.Write("Valor da transferência: ");
-        double valor = LerDouble();
-
-        ContaBancaria? origem = BuscarConta(contas, origemId);
-        ContaBancaria? destino = BuscarConta(contas, destinoId);
-
-        if (origem == null || destino == null)
+        while (true)
         {
-            Console.WriteLine("Conta não encontrada.");
-            return;
+            if (origemId == 0)
+            {
+                Console.Write("ID da conta de origem: ");
+            origemId = LerInt();
+            }
+            ContaBancaria? origem = BuscarConta(contas, origemId);
+            if (origem == null)
+            {
+                Console.WriteLine("Conta não encontrada.");
+                origemId = 0;
+                continue;
+            }
+
+            if (destinoId == 0)
+            {
+                Console.Write("ID da conta de destino: ");
+            destinoId = LerInt();
+            }
+            ContaBancaria? destino = BuscarConta(contas, destinoId);
+            if (destino == null)
+            {
+                Console.WriteLine("Conta não encontrada.");
+                destinoId = 0;
+                continue;
+            }
+
+            Console.Write("Valor da transferência: ");
+            valor = LerDouble();
+
+
+            Console.WriteLine(
+                origem.Transferir(destino, valor)
+                    ? "Transferência realizada com sucesso."
+                    : "Erro: saldo insuficiente ou valor inválido."
+            );
+            break;
         }
-
-        Console.WriteLine(
-            Transferir(destino, valor)
-                ? "Transferência realizada com sucesso."
-                : "Erro: saldo insuficiente ou valor inválido."
-        );
     }
 
-    public bool Transferir(ContaBancaria destino, double valor)
-    {
-        if (!destino.Sacar(valor)) return false;
 
-        destino.Depositar(valor);        
-        return true;
-    }
 
     // ================= UTILITÁRIOS =================
     public ContaBancaria? SolicitarConta(List<ContaBancaria> contas)
@@ -137,6 +151,17 @@ public class ContaManeger
     }
 
     // ================= LEITURA SEGURA ==================
+
+    public string LerString()
+    {
+        string name = Console.ReadLine();
+        while (int.TryParse(name, out int a) || string.IsNullOrWhiteSpace(name))
+        {
+            Console.Write("Entrada inválida. Digite um nome valido sem valores numericos: ");
+            name = Console.ReadLine();
+        }
+        return name;
+    }
     public int LerInt()
     {
         int valor;
@@ -161,7 +186,7 @@ public class ContaManeger
         return valor;
     }
 
-    
+
 }
 
 // ================= CLASSE CONTA ==================

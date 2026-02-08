@@ -9,3 +9,11 @@
 /obj
 /obj/Debug/net10.0
 /obj/Debug
+obj/Debug/net10.0/ContaBancaria.GeneratedMSBuildEditorConfig.editorconfig
+obj/Debug/net10.0/ContaBancaria.genruntimeconfig.cache
+obj/Debug/net10.0/ContaBancaria.pdb
+obj/Debug/net10.0/ContaBancaria.sourcelink.json
+obj/Debug/net10.0/ref/ContaBancaria.dll
+obj/Debug/net10.0/refint/ContaBancaria.dll
+obj/project.assets.json
+obj/project.nuget.cache
